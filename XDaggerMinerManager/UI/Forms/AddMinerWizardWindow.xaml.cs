@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,8 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO.Compression;
 
-namespace XDaggerMinerManager.Forms
+namespace XDaggerMinerManager.UI.Forms
 {
 
     /// <summary>
@@ -135,6 +137,45 @@ namespace XDaggerMinerManager.Forms
                     lblStepFour.FontWeight = FontWeights.ExtraBold;
                     
                     break;
+            }
+        }
+
+        private void btnDownLoadTest_Click(object sender, RoutedEventArgs e)
+        {
+            string fullPath = System.IO.Path.GetTempPath() + "XDaggerMinerWin-v.0.0.1-x64.zip";
+
+            try
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
+                using (var client = new WebClient())
+                {
+                    btnDownloadTest.IsEnabled = false;
+                    
+                    client.DownloadFileCompleted += (clientsender, even) => {
+
+                        ZipFile.ExtractToDirectory(fullPath, System.IO.Path.GetTempPath());
+                        btnDownloadTest.IsEnabled = true;
+
+                    };
+
+                    Uri uri = new Uri("https://github.com/Toneyisnow/XDaggerMinerWin/releases/download/0.0.1/XDaggerMinerWin-v.0.0.1-x64.zip");
+                    client.DownloadFileAsync(uri, fullPath);
+
+
+                    
+                }
+            }
+            catch (WebException webEx)
+            {
+                // TODO: Add handler
+            }
+            catch(InvalidOperationException invalidOper)
+            {
+                // TODO: Add handler
             }
         }
     }

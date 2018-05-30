@@ -1,21 +1,21 @@
-﻿<Window x:Name="addMinerWizard" x:Class="XDaggerMinerManager.Forms.AddMinerWizardWindow"
+﻿<Window x:Name="addMinerWizard" x:Class="XDaggerMinerManager.UI.Forms.AddMinerWizardWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:XDaggerMinerManager.Forms"
+        xmlns:local="clr-namespace:XDaggerMinerManager.UI.Forms"
         mc:Ignorable="d"
-        Title="添加矿机" Height="338" Width="444" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" Closing="onClosing">
-    <Grid Margin="0,10,0,0">
+        Title="添加矿机" Height="355.712" Width="444" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" Closing="onClosing">
+    <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="287*"/>
-            <ColumnDefinition Width="208*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="lblStepOne" Content="1. 选择机器" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="108" FontSize="16" BorderThickness="2" FontWeight="ExtraBold" Background="#FFCBDFEE"/>
         <Label x:Name="lblStepTwo" Content="2. 部署矿机" HorizontalAlignment="Left" Margin="123,10,0,0" VerticalAlignment="Top" Width="98" FontSize="16" BorderThickness="2"/>
         <Label x:Name="lblStepThree" Content="3. 配置环境" HorizontalAlignment="Left" Margin="230,10,0,0" VerticalAlignment="Top" Width="105" FontSize="16" BorderThickness="2" Grid.ColumnSpan="2"/>
         <Label x:Name="lblStepFour" Content="4. 启动" Margin="0,10,15,0" VerticalAlignment="Top" FontSize="16" BorderThickness="2" Grid.Column="1" HorizontalAlignment="Right" Width="86"/>
         <Grid x:Name="grdStepTwo" HorizontalAlignment="Left" Height="246" Margin="10,50,0,0" VerticalAlignment="Top" Width="416" Background="#FFE8E5E5" Grid.ColumnSpan="2">
+            <Button x:Name="btnDownloadTest" Content="下载" Margin="0,0,52,44" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" Background="{DynamicResource WizardStepButton}" BorderBrush="#FF93C4CF" Click="btnDownLoadTest_Click"/>
             <Button x:Name="btnStepTwoNext" Content="下一步" Margin="0,0,16,14" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" Background="{DynamicResource WizardStepButton}" BorderBrush="#FF93C4CF" Click="btnStepTwoNext_Click"/>
             <Button x:Name="btnStepTwoBack" Content="后退" Margin="0,0,143,14" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" Background="{DynamicResource WizardStepButton}" BorderBrush="#FF93C4CF" Click="btnStepTwoBack_Click"/>
         </Grid>
@@ -27,10 +27,10 @@
             <Button x:Name="btnStepFourFinish" Content="完成" Margin="0,0,16,14" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" Background="{DynamicResource WizardStepButton}" BorderBrush="#FF93C4CF" Click="btnStepFourFinish_Click"/>
             <Button x:Name="btnStepFourBack" Content="后退" Margin="0,0,143,14" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" Background="{DynamicResource WizardStepButton}" BorderBrush="#FF93C4CF" Click="btnStepFourBack_Click"/>
         </Grid>
-        <Grid x:Name="grdStepOne" HorizontalAlignment="Left" Height="246" Margin="10,50,0,0" VerticalAlignment="Top" Width="416" Background="#FFE8E5E5" Grid.ColumnSpan="2">
+        <Grid x:Name="grdStepOne" HorizontalAlignment="Left" Height="241" Margin="10,50,0,0" VerticalAlignment="Top" Width="416" Background="#FFE8E5E5" Grid.ColumnSpan="2">
             <Button x:Name="btnStepOneNext" Content="下一步" Margin="0,0,16,14" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" Background="{DynamicResource WizardStepButton}" BorderBrush="#FF93C4CF" Click="btnStepOneNext_Click"/>
         </Grid>
-        <ProgressBar x:Name="prbIndicator" Margin="0,-9,0,305" Grid.ColumnSpan="2" Height="3" VerticalAlignment="Bottom" Foreground="#FF4D5E83" Value="50"/>
+        <ProgressBar x:Name="prbIndicator" Margin="10,46,10,278" Foreground="#FF4D5E83" Value="50"/>
 
     </Grid>
 </Window>
