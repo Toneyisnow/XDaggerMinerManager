@@ -1,5 +1,7 @@
 # Introduction
 
+Note: This repository has been migrated to private repro. Freeze this now.
+
 ## XDaggerMinerManager
 
 This is a GUI tool that manages the XDaggerMiner processes on Windows. 
